@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="app.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="img">
+        <!-- counter watch -->
+        <div id="clock">
+                       
+            <div id="houre">00</div>
+            <div>:</div>
+            <div id="minut">00</div>
+            <div>:</div>
+            <div id="sec">00</div>
+        </div>
+        
+        <!-- ramzan time -->
+        <div class="title_div">
+        <div class="title_ramzan"><h1>RAMZAN 2023</h1></div>
+        <div class="counter" id="counter">0</div>
+    </div>
+    
+<div class="sehri_iftar">
+
+
+<div class="sehri">
+    <h2>SEHRI TIME</h2>
+    <div class="hr_line"></div>
+    <div class="sehri_time">
+    <div>05</div>
+    <div>:</div>
+    <div id="sehriTime">58</div>
+    <div>:</div>
+    <div>AM</div>
+</div>
+</div>
+<div class="verticl_line"></div>
+<div class="iftan">
+    <h2>IFTAR TIME</h2>
+<div class="hr_line"></div>
+    <div class="itar-time">
+ <div id="iftar_hour">06 </div>
+<div>:</div>
+<div id="iftar">44</div>
+<div>:</div>
+<div>PM</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    
+    // increment of  counter
+    var counterOfMonth = 0;
+    
+     var counter=setInterval(() => {
+   
+    var count = document.getElementById("counter");
+    
+   var stopCounter = count.innerHTML = counterOfMonth++;
+   if(stopCounter == 30){
+    clearInterval(counter);
+   }
+}, 1000);
+
+//sEHRI TIME
+var sehriTime = 58;
+     var counterOfSehri=setInterval(() => {
+    
+    var countdown = document.getElementById("sehriTime");
+   var stopCounter = countdown.innerHTML = sehriTime-- ;
+   if(stopCounter == 28){
+    clearInterval(counterOfSehri );
+   }
+}, 1000);
+
+ // IFTAR TIME
+ var IftarTime = 44;
+      var counterOfIftar = setInterval(() => {
+    
+     var countIftar = document.getElementById("iftar");
+   var stopCounterIftar = countIftar.innerHTML = IftarTime++ ;
+   if(stopCounterIftar == 59){
+    IftarTime = 0;
+        document.getElementById("iftar_hour").innerHTML = 07;
+}
+  if(stopCounterIftar == 14){
+      clearInterval(counterOfIftar );
+     }
+ }, 1000);
+
+//background of counter
+
+var count = document.getElementById("counter");
+var bgColor = "rd";
+function changBg(){
+    if( bgColor == "rd"){
+        count.style.background = "yellow";
+        bgColor = "bl";
+    }else if(bgColor == "bl"){
+        count.style.background = "blue"; 
+        bgColor = "rd";
+    }
+}
+
+
+var loop =setInterval(changBg,1000)
+</script>
+
+</body>
+</html>
